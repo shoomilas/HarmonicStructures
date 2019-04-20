@@ -5,14 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HarmonicStructures"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
+        Title="HarmonicStructures" Height="350" MinWidth="1000" Width="1200"
+        FontSize="12">
+    <Grid> <!--KeyDown="Grid_KeyDown">-->
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="9*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Label Content="Hello .NET Core!" HorizontalAlignment="Center" VerticalAlignment="Center"
                FontSize="40"/>
-        <Button Content="Exit" Grid.Row="1" FontSize="20" Click="ButtonExit_Click"/>
+        <Button Content="Exit" Grid.Row="1" FontSize="20" Click="ButtonExit_Click"/>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" MinWidth="240px" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10px" /> <!-- TOP BAR -->
+            <RowDefinition Height="*" MinHeight="300" /> <!-- CENTER BODY -->
+            <RowDefinition Height="*" /> <!-- FOOTER -->
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="FretboardDisplay" Grid.Column="1" Grid.Row="1"
+                   FontFamily="Consolas"
+                   Text="Lorem ipsum, buddy"/>
     </Grid>
 </Window>

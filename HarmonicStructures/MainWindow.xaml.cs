@@ -13,6 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using static HarmonicStructures.Pitches;
+using static HarmonicStructures.Chords;
+using static HarmonicStructures.Scales;
+using static HarmonicStructures.Interval;
+
 namespace HarmonicStructures
 {
     /// <summary>
@@ -25,9 +30,9 @@ namespace HarmonicStructures
             InitializeComponent();
         }
 
-        private void ButtonExit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
+        //private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Application.Current.Shutdown();
+        //}
     }
 }
