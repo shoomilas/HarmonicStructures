@@ -28,6 +28,8 @@ namespace HarmonicStructures
         public MainWindow()
         {
             InitializeComponent();
+            FretboardDisplay.Text = (new Fretboard(13, A, E, A, D, G, B, E)).PlotAsNotes(C, Major);
+            FretboardDisplay2.Text = (new Fretboard(13, A, E, A, D, G, B, E)).Plot(C, Major);
         }
 
         //private void ButtonExit_Click(object sender, RoutedEventArgs e)

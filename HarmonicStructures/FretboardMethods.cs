@@ -6,7 +6,7 @@ namespace HarmonicStructures
 {
     partial class Fretboard
     {
-        public void Plot() //Default = Chromatic Scale with the last string's 0 fret being a root
+        public string Plot() //Default = Chromatic Scale with the last string's 0 fret being a root
         {
             Pitch Root = fretboard[(this.NumberOfStrings - 1), 0];
             HarmonicSet Set = new HarmonicSet(Root, Scales.Chromatic);
@@ -34,30 +34,33 @@ namespace HarmonicStructures
                 }
             }
 
+            string outcome = "";
+
             for (int CurrentString = 0; CurrentString < NumberOfStrings; CurrentString++) //StringIteration
             {
-                Console.Write($" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||");
+                outcome += $" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||";
                 for (int CurrentFret = 1; CurrentFret < FretboardPlot.fretboard.GetLength(1); CurrentFret++) //FretIteration
                 {
 
                     if (FretboardPlot.fretboard[CurrentString, CurrentFret].Factor == null)
                     {
-                        Console.Write("-------|");
+                        outcome += "-------|";
                     }
                     else if (FretboardPlot.fretboard[CurrentString, CurrentFret].Factor == Interval.Root)
                     {
-                        Console.Write($"-({FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()})--|");
+                        outcome += $"-({FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()})--|";
                     }
                     else
                     {
-                        Console.Write($"- {FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()} --|");
+                        outcome += $"- {FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()} --|";
                     }
                 }
-                Console.Write("\n");
+                outcome += "\n";
             }
+            return outcome;
         }
 
-        public void Plot(int[] Factors) //Creates a new fretboard[,] array filled witch Pitch type values and "writes" a Harmonic set into it.; Default Gsharp root so that it is positioned like in my tables done graphically
+        public string Plot(int[] Factors) //Creates a new fretboard[,] array filled witch Pitch type values and "writes" a Harmonic set into it.; Default Gsharp root so that it is positioned like in my tables done graphically
         {
             Pitch Root = Pitches.Gsharp;
             HarmonicSet Set = new HarmonicSet(Root, Factors);
@@ -85,30 +88,34 @@ namespace HarmonicStructures
                 }
             }
 
+            string outcome = "";         
+
             for (int CurrentString = 0; CurrentString < NumberOfStrings; CurrentString++) //StringIteration
             {
-                Console.Write($" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||");
+                outcome += $" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||";
                 for (int CurrentFret = 1; CurrentFret < FretboardPlot.fretboard.GetLength(1); CurrentFret++) //FretIteration
                 {
 
                     if (FretboardPlot.fretboard[CurrentString, CurrentFret].Factor == null)
                     {
-                        Console.Write("-------|");
+                        outcome += "-------|";
                     }
                     else if (FretboardPlot.fretboard[CurrentString, CurrentFret].Factor == Interval.Root)
                     {
-                        Console.Write($"-({FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()})--|");
+                        outcome += $"-({FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()})--|";
                     }
                     else
                     {
-                        Console.Write($"- {FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()} --|");
+                        outcome += $"- {FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()} --|";
                     }
                 }
-                Console.Write("\n");
+                outcome += "\n";
             }
+
+            return outcome;
         }
 
-        public void Plot(Pitch Root, int[] Factors) //This Method was made to "match" the fret-size of "PlotAsNotes"a
+        public string Plot(Pitch Root, int[] Factors) //This Method was made to "match" the fret-size of "PlotAsNotes"a
         {
             HarmonicSet Set = new HarmonicSet(Root, Factors);
             Fretboard FretboardPlot = new Fretboard(this.NumberOfFrets, Tuning);
@@ -135,31 +142,35 @@ namespace HarmonicStructures
                 }
             }
 
+            string outcome = "";
+
             //Responsible only for printing it out as factors: :D
             for (int CurrentString = 0; CurrentString < NumberOfStrings; CurrentString++) //StringIteration
             {
-                Console.Write($" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||");
+                outcome += $" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||";
                 for (int CurrentFret = 1; CurrentFret < FretboardPlot.fretboard.GetLength(1); CurrentFret++) //FretIteration
                 {
 
                     if (FretboardPlot.fretboard[CurrentString, CurrentFret].Factor == null)
                     {
-                        Console.Write("-------|");
+                        outcome += "-------|";
                     }
                     else if (FretboardPlot.fretboard[CurrentString, CurrentFret].Factor == Interval.Root)
                     {
-                        Console.Write($"-({FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()})--|");
+                        outcome += $"-({FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()})--|";
                     }
                     else
                     {
-                        Console.Write($"- {FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()} --|");
+                        outcome += $"- {FretboardPlot.fretboard[CurrentString, CurrentFret].FactorToString()} --|";
                     }
                 }
-                Console.Write("\n");
+                outcome += "\n";
             }
+
+            return outcome;
         }
 
-        public void PlotAsNotes(Pitch Root, int[] Factor)
+        public string PlotAsNotes(Pitch Root, int[] Factor)
         {
             HarmonicSet Set = new HarmonicSet(Root, Factor);
             Fretboard FretboardPlot = new Fretboard(this.NumberOfFrets, Tuning);
@@ -185,6 +196,9 @@ namespace HarmonicStructures
                     }
                 }
             }
+
+            string outcome = "";
+            
             //Responsible for printing out as notes:
             for (int CurrentString = 0; CurrentString < NumberOfStrings; CurrentString++) //StringIteration
             {
@@ -192,7 +206,7 @@ namespace HarmonicStructures
                 if (FretboardPlot.fretboard[CurrentString, 0].Factor == null)
                 {
                     //Console.Write($" {CurrentString + 1}: \t||");
-                    Console.Write($" {CurrentString + 1}:      ||");
+                    outcome += $" {CurrentString + 1}:      ||";
                 }
                 else
                 {
@@ -200,11 +214,11 @@ namespace HarmonicStructures
                     bool tempIsSharp = (temp.Note == Notes.Csharp || temp.Note == Notes.Dsharp || temp.Note == Notes.Fsharp || temp.Note == Notes.Gsharp || temp.Note == Notes.Asharp);
                     if (tempIsSharp)
                     {
-                        Console.Write($" {CurrentString + 1}: {FretboardPlot.fretboard[CurrentString, 0]}||");
+                        outcome += $" {CurrentString + 1}: {FretboardPlot.fretboard[CurrentString, 0]}||";
                     }
                     else
                     {
-                        Console.Write($" {CurrentString + 1}:   {FretboardPlot.fretboard[CurrentString, 0]}  ||");
+                        outcome += $" {CurrentString + 1}:   {FretboardPlot.fretboard[CurrentString, 0]}  ||";
                     }
                 }
 
@@ -213,7 +227,7 @@ namespace HarmonicStructures
 
                     if (FretboardPlot.fretboard[CurrentString, CurrentFret].Factor == null)
                     {
-                        Console.Write("-------|");
+                        outcome += "-------|";
                     }
                     else
                     {
@@ -221,20 +235,24 @@ namespace HarmonicStructures
                         bool tempIsSharp = (temp.Note == Notes.Csharp || temp.Note == Notes.Dsharp || temp.Note == Notes.Fsharp || temp.Note == Notes.Gsharp || temp.Note == Notes.Asharp);
                         if (tempIsSharp)
                         {
-                            Console.Write($"-{FretboardPlot.fretboard[CurrentString, CurrentFret]}-|");
+                            outcome += $"-{FretboardPlot.fretboard[CurrentString, CurrentFret]}-|";
                         }
                         else
                         {
-                            Console.Write($"---{FretboardPlot.fretboard[CurrentString, CurrentFret]}---|");
+                            outcome += $"---{FretboardPlot.fretboard[CurrentString, CurrentFret]}---|";
                         }
                     }
                 }
-                Console.Write("\n");
+                outcome += "\n";
             }
+
+            return outcome;
         }
 
-        public void ShowFretboardMap()
+        public string ShowFretboardMap()
         {
+            string outcome = "";
+
             for (int CurrentString = 0; CurrentString < NumberOfStrings; CurrentString++) //StringIteration
             {
 
@@ -243,11 +261,11 @@ namespace HarmonicStructures
                     bool tempIsSharp = (temp.Note == Notes.Csharp || temp.Note == Notes.Dsharp || temp.Note == Notes.Fsharp || temp.Note == Notes.Gsharp || temp.Note == Notes.Asharp);
                     if (tempIsSharp)
                     {
-                        Console.Write($" {CurrentString + 1}: {fretboard[CurrentString, 0]} ||");
+                        outcome += $" {CurrentString + 1}: {fretboard[CurrentString, 0]} ||";
                     }
                     else
                     {
-                        Console.Write($" {CurrentString + 1}:   {fretboard[CurrentString, 0]}   ||");
+                        outcome += $" {CurrentString + 1}:   {fretboard[CurrentString, 0]}   ||";
                     }
                 }  //Writes the note on the 0 fret.
                 for (int CurrentFret = 1; CurrentFret < fretboard.GetLength(1); CurrentFret++) //FretIteration
@@ -257,17 +275,19 @@ namespace HarmonicStructures
                         bool tempIsSharp = (temp.Note == Notes.Csharp || temp.Note == Notes.Dsharp || temp.Note == Notes.Fsharp || temp.Note == Notes.Gsharp || temp.Note == Notes.Asharp);
                         if (tempIsSharp)
                         {
-                            Console.Write($"-{fretboard[CurrentString, CurrentFret]}-|");
+                            outcome += $"-{fretboard[CurrentString, CurrentFret]}-|";
                         }
                         else
                         {
-                            Console.Write($"---{fretboard[CurrentString, CurrentFret]}---|");
+                            outcome += $"---{fretboard[CurrentString, CurrentFret]}---|";
                         }
                     }
-                    //Console.Write($"{fretboard[CurrentString, CurrentFret]} \t");
+                    //outcome += $"{fretboard[CurrentString, CurrentFret]} \t");
                 }
-                Console.Write("\n");
+                outcome += "\n";
             }
+
+            return outcome;
         }
     }
 }

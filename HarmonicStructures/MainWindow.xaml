@@ -5,28 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HarmonicStructures"
         mc:Ignorable="d"
-        Title="HarmonicStructures" Height="350" MinWidth="1000" Width="1200"
-        FontSize="12">
-    <Grid> <!--KeyDown="Grid_KeyDown">-->
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Label Content="Hello .NET Core!" HorizontalAlignment="Center" VerticalAlignment="Center"
+        Title="HarmonicStructures" MinHeight="330" MinWidth="1000" SizeToContent="WidthAndHeight"
+        FontSize="15">
+    <Grid>
+        <!-- <Label Content="Hello .NET Core!" HorizontalAlignment="Center" VerticalAlignment="Center"
                FontSize="40"/>
-        <Button Content="Exit" Grid.Row="1" FontSize="20" Click="ButtonExit_Click"/>-->
+        
+        <Button Content="Exit" Grid.Row="1" FontSize="20" Click="ButtonExit_Click"/> -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" MinWidth="240px" />
-            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="20px"/>
+            <ColumnDefinition Width="1*" MinWidth="180px" />
+            <ColumnDefinition Width="30px" />
+            <ColumnDefinition Width="6*" />
+            <ColumnDefinition Width="30px" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10px" /> <!-- TOP BAR -->
-            <RowDefinition Height="*" MinHeight="300" /> <!-- CENTER BODY -->
-            <RowDefinition Height="*" /> <!-- FOOTER -->
+            <RowDefinition Height="10px" />
+            <!-- TOP BAR -->
+            <RowDefinition Height="2*" MinHeight="300" />
+            <!-- CENTER BODY -->
+            <RowDefinition Height="1px" />
+            <!-- FOOTER -->
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="FretboardDisplay" Grid.Column="1" Grid.Row="1"
+        <!-- Left Panel -->
+        <StackPanel Grid.Column="1" Grid.Row="1">
+
+            <!-- Title -->
+            <Label HorizontalAlignment="Center" FontWeight="Bold" >HarmonicStructures</Label>
+
+            <!-- Tuning choice -->           
+            <Label/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Tuning:</Label>
+                <TextBox Grid.Column="1" Text="E A D G B E"/>
+            </Grid>
+
+            <!-- Scale choice -->
+            <Label/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Scale:</Label>
+                <ComboBox Grid.Column="1" SelectedIndex="1">
+                    <ComboBoxItem>---</ComboBoxItem>
+                    <ComboBoxItem>Major</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            
+
+            <!-- Chord choice -->
+            <Label/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Chord:</Label>
+                <ComboBox Grid.Column="1" SelectedIndex="0">
+                    <ComboBoxItem>---</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+
+            <!-- Root choice -->
+            <Label/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0">Root:</Label>
+                <ComboBox Grid.Column="1">
+                    <ComboBoxItem>[Rootless]</ComboBoxItem>
+                    <ComboBoxItem>C</ComboBoxItem>
+                    <ComboBoxItem>C#/Db</ComboBoxItem>
+                    <ComboBoxItem>D</ComboBoxItem>
+                    <ComboBoxItem>D#/Eb</ComboBoxItem>
+                    <ComboBoxItem>E</ComboBoxItem>
+                    <ComboBoxItem>F</ComboBoxItem>
+                    <ComboBoxItem>F#/Gb</ComboBoxItem>
+                    <ComboBoxItem>G</ComboBoxItem>
+                    <ComboBoxItem>G#/Ab</ComboBoxItem>
+                    <ComboBoxItem>A</ComboBoxItem>
+                    <ComboBoxItem>A#/Bb</ComboBoxItem>
+                    <ComboBoxItem>B</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+
+            <!-- Additional buttons, transposition, etc. -->
+
+        </StackPanel>
+
+        <!--Right panel-->
+        <StackPanel Grid.Column="3" Grid.Row="1" VerticalAlignment="Top">
+            <TextBlock x:Name="FretboardDisplay"
                    FontFamily="Consolas"
                    Text="Lorem ipsum, buddy"/>
+            <TextBlock x:Name="FretboardDisplay2"
+                   FontFamily="Consolas"
+                   Text="Lorem ipsum, buddy"/>
+        </StackPanel>
+        <!--<TextBlock x:Name="FretboardDisplay" Grid.Column="1" Grid.Row="1"
+                   FontFamily="Consolas"
+                   Text="Lorem ipsum, buddy"/>
+        <TextBlock x:Name="FretboardDisplay2" Grid.Column="1" Grid.Row="2"
+                   FontFamily="Consolas"
+                   Text="Lorem ipsum, buddy"/>-->
     </Grid>
 </Window>
