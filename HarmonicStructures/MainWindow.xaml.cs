@@ -48,12 +48,13 @@ namespace HarmonicStructures
             ScaleOrChord = true;
             CurrentSet = GetScale("Major (1) Ionian");
             CurrentRoot = GetPitch("C");
-            CurrentTuning = new[] { A, E, A, D, G, B, E };
+            CurrentTuning = new[] { E, A, D, G, B, E };
 
             ScaleSelection.SelectedIndex = 0;
             ChordSelection.SelectedIndex = 0;
             RootSelection.SelectedIndex = 0;
 
+            //TODO: Use delegates to make these more concise
             FretboardDisplay.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).PlotAsNotes(CurrentRoot, CurrentSet);
             FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet); //FretboardDisplay2.Text = (new Fretboard(13, A, E, A, D, G, B, E)).Plot(C, Major);
         }

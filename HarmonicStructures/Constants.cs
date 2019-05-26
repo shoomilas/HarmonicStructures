@@ -56,19 +56,6 @@ namespace HarmonicStructures
     {
         public static Dictionary<string, Pitch> RootsDictionary = new Dictionary<string, Pitch>
         {
-              //{"C", C},
-            //{"C#/Db", Csharp},
-            //{"D"      },
-            //{"D#/Eb",  new Pitch(Notes.Dsharp)},
-            //{"E",      new Pitch(Notes.E)},
-            //{"F", F},
-            //{"F#/Gb", Fsharp},
-            //{"G", G},
-            //{"G#/Ab", Gsharp},
-            //{"A", A},
-            //{"A#/Bb", Asharp},
-            //{"B", B},
-
             //{"[Rootless]", null}, //then do <string, Pitch?>
             {"C",      new Pitch(Notes.C)},
             {"C#/Db",  new Pitch(Notes.Csharp)},
