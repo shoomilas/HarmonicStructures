@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HarmonicStructures"
         mc:Ignorable="d"
-        Title="HarmonicStructures" MinHeight="330" MinWidth="1000" SizeToContent="WidthAndHeight"
+        Title="HarmonicStructures" MinHeight="330" MinWidth="1100" SizeToContent="WidthAndHeight"
         FontSize="15">
     <Grid>
         <!-- <Label Content="Hello .NET Core!" HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -14,7 +14,7 @@
         <Button Content="Exit" Grid.Row="1" FontSize="20" Click="ButtonExit_Click"/> -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20px"/>
-            <ColumnDefinition Width="1*" MinWidth="180px" />
+            <ColumnDefinition Width="1*" MinWidth="250px" />
             <ColumnDefinition Width="30px" />
             <ColumnDefinition Width="6*" />
             <ColumnDefinition Width="30px" />
@@ -32,8 +32,8 @@
         <StackPanel Grid.Column="1" Grid.Row="1">
 
             <!-- Title -->
-            <Label HorizontalAlignment="Center" FontWeight="Bold" >HarmonicStructures</Label>
-
+            <Label x:Name="TitleLabel" HorizontalAlignment="Center" FontWeight="Bold">HarmonicStructures</Label>
+            
             <!-- Tuning choice -->           
             <Label/>
             <Grid>
@@ -53,9 +53,9 @@
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0">Scale:</Label>
-                <ComboBox Grid.Column="1" SelectedIndex="1">
-                    <ComboBoxItem>---</ComboBoxItem>
-                    <ComboBoxItem>Major</ComboBoxItem>
+                <!--<ComboBox x:Name="ScaleSelection" Grid.Column="1" SelectedIndex="1" ItemsSource="{Binding Path=ScalesList}" SelectionChanged="ScaleSelection_SelectionChanged">-->
+                <ComboBox x:Name="ScaleSelection" Grid.Column="1"  ItemsSource="{Binding Path=ScalesList}" SelectionChanged="ScaleSelection_SelectionChanged">
+                    <!--<ComboBoxItem>...</ComboBoxItem>-->
                 </ComboBox>
             </Grid>
             
@@ -68,8 +68,9 @@
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0">Chord:</Label>
-                <ComboBox Grid.Column="1" SelectedIndex="0">
-                    <ComboBoxItem>---</ComboBoxItem>
+                <!--<ComboBox x:Name="ChordSelection" Grid.Column="1" SelectedIndex="0" ItemsSource="{Binding Path=ChordsList}" SelectionChanged="ChordSelection_SelectionChanged">-->
+                <ComboBox x:Name="ChordSelection" Grid.Column="1" ItemsSource="{Binding Path=ChordsList}" SelectionChanged="ChordSelection_SelectionChanged">
+                    <!--<ComboBoxItem>...</ComboBoxItem>-->
                 </ComboBox>
             </Grid>
 
@@ -81,8 +82,8 @@
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0">Root:</Label>
-                <ComboBox Grid.Column="1">
-                    <ComboBoxItem>[Rootless]</ComboBoxItem>
+                <ComboBox x:Name="RootSelection" Grid.Column="1" ItemsSource="{Binding Path=RootsList}" SelectionChanged="RootSelection_SelectionChanged" >
+                    <!--<ComboBoxItem>[Rootless]</ComboBoxItem>
                     <ComboBoxItem>C</ComboBoxItem>
                     <ComboBoxItem>C#/Db</ComboBoxItem>
                     <ComboBoxItem>D</ComboBoxItem>
@@ -94,7 +95,7 @@
                     <ComboBoxItem>G#/Ab</ComboBoxItem>
                     <ComboBoxItem>A</ComboBoxItem>
                     <ComboBoxItem>A#/Bb</ComboBoxItem>
-                    <ComboBoxItem>B</ComboBoxItem>
+                    <ComboBoxItem>B</ComboBoxItem>-->
                 </ComboBox>
             </Grid>
 

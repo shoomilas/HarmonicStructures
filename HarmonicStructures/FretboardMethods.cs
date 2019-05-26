@@ -198,7 +198,7 @@ namespace HarmonicStructures
             }
 
             string outcome = "";
-            
+
             //Responsible for printing out as notes:
             for (int CurrentString = 0; CurrentString < NumberOfStrings; CurrentString++) //StringIteration
             {
