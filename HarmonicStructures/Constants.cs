@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using static HarmonicStructures.Interval;
 
 //NOTE: About the chords
-// I'm not implementing extended chords like #11, 9, etc. right now. Essentially, it what Ted Greene wrote in 'Chord Chemistry': "On the guitar (...) SO IT'S JUST DUE TO TRADITION THAT THEY ARE STILL CALLED 9, 11, 13 AS OPPOSED TO 2, 4, 6" 
+// I'm not implementing extended chords like #11, 9, etc. right now. Essentially, it's what Ted Greene wrote in 'Chord Chemistry': "On the guitar (...) SO IT'S JUST DUE TO TRADITION THAT THEY ARE STILL CALLED 9, 11, 13 AS OPPOSED TO 2, 4, 6" 
 
 //NOTE: Possible ways to 'add' new chords/scales:
 //public static readonly int[] Min7 = { 3, 7, 10 };  
