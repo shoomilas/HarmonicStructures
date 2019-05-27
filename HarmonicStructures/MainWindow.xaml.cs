@@ -85,6 +85,20 @@ namespace HarmonicStructures
             FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet);
         }
 
+        private void TuningSelection_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if (StringTools.StringToPitchesValidator(TuningSelection.Text))
+                {
+                    CurrentTuning = StringTools.StringToPitches(TuningSelection.Text);
+                    FretboardDisplay.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).PlotAsNotes(CurrentRoot, CurrentSet);
+                    FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet);
+                }
+            }
+           
+        }
+
         //private void ButtonExit_Click(object sender, RoutedEventArgs e)
         //{
         //    Application.Current.Shutdown();
