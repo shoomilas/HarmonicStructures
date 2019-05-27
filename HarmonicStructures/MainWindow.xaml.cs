@@ -33,7 +33,7 @@ namespace HarmonicStructures
         private int numberOfStringsToPrint;
         public int[] CurrentSet;
         private Pitch CurrentRoot { get; set; }
-
+        private bool ShouldNotExecute;
 
         public MainWindow()
         {         
@@ -49,10 +49,11 @@ namespace HarmonicStructures
             CurrentSet = GetScale("Major (1) Ionian");
             CurrentRoot = GetPitch("C");
             CurrentTuning = new[] { E, A, D, G, B, E };
+            ShouldNotExecute = false;
 
-            ScaleSelection.SelectedIndex = 0;
-            ChordSelection.SelectedIndex = 0;
+            ChordSelection.SelectedIndex = -1;
             RootSelection.SelectedIndex = 0;
+            ScaleSelection.SelectedValue = "Major (1) Ionian";
 
             //TODO: Use delegates to make these more concise
             FretboardDisplay.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).PlotAsNotes(CurrentRoot, CurrentSet);
@@ -61,7 +62,13 @@ namespace HarmonicStructures
 
         private void ChordSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (ShouldNotExecute) return;
+
             ScaleOrChord = true;
+            ShouldNotExecute = true;
+            ScaleSelection.SelectedIndex = -1;
+            ShouldNotExecute = false;
+
             CurrentSet = GetChord(ChordSelection.SelectedItem.ToString());
             FretboardDisplay.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).PlotAsNotes(CurrentRoot, CurrentSet);
             FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet);
@@ -69,17 +76,25 @@ namespace HarmonicStructures
 
         private void ScaleSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (ShouldNotExecute) return;
+
             ScaleOrChord = false;
+
+            ShouldNotExecute = true;
+            ChordSelection.SelectedIndex = -1;
+            ShouldNotExecute = false;
+
             CurrentSet = GetScale(ScaleSelection.SelectedItem.ToString());
             FretboardDisplay.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).PlotAsNotes(CurrentRoot, CurrentSet);
             FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet);
+
         }
 
         private void RootSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             CurrentRoot = GetPitch(
                 RootSelection.SelectedItem.ToString()
-                );
+            );
            
             FretboardDisplay.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).PlotAsNotes(CurrentRoot, CurrentSet);
             FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet);
@@ -96,12 +111,11 @@ namespace HarmonicStructures
                     FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet);
                 }
             }
-           
         }
 
-        //private void ButtonExit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Application.Current.Shutdown();
-        //}
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
