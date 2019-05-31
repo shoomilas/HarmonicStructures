@@ -5,8 +5,8 @@ Minimalistic GUI written in WPF
 
 ## Demos:
 
-[Demo GIF 1](https://i.imgur.com/XftIkgF.gif)
+![Demo GIF 1](https://i.imgur.com/XftIkgF.gif)
 
-[Demo GIF 2](https://i.imgur.com/Uyq8F6T.gif)
+![Demo GIF 2](https://i.imgur.com/Uyq8F6T.gif)
 
-[Demo GIF 3](https://i.imgur.com/subJDVS.gif)
+![Demo GIF 3](https://i.imgur.com/subJDVS.gif)
