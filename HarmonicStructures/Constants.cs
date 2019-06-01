@@ -88,11 +88,6 @@ namespace HarmonicStructures
         public static readonly Pitch A = new Pitch(Notes.A);
         public static readonly Pitch Asharp = new Pitch(Notes.Asharp);
         public static readonly Pitch B = new Pitch(Notes.B);
-
-        //public static implicit operator object? (Pitches v)
-        //{
-        //	throw new NotImplementedException();
-        //}
     }
 
     public class Interval
@@ -201,7 +196,6 @@ namespace HarmonicStructures
             return ChordsDictionary[name];
         }
 
-
         //Template: public static readonly int[] NAME = { ... };
         public static readonly int[] Maj = { MajorThird, Fifth };
 		public static readonly int[] Min = { MinorThird, Fifth };
@@ -218,19 +212,3 @@ namespace HarmonicStructures
 		public static readonly int[] _7sus4 = { Fourth, Fifth, MinorSeventh };
 	}
 }
-
-//enum Notes : int //Contains the note names which are implemented in Pitch type.
-//{
-//	C = 0,
-//	C_D, //C#/Db, shorter notation meaning "something between C and D", "C#" notation won't be able to denote harmonic context
-//	D,
-//	D_E,
-//	E,
-//	F,
-//	F_G,
-//	G,
-//	G_A,
-//	A,
-//	A_B,
-//	B
-//} // C, C_D, D, ...
