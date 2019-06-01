@@ -79,7 +79,6 @@ namespace HarmonicStructures
             if (ShouldNotExecute) return;
 
             ScaleOrChord = false;
-
             ShouldNotExecute = true;
             ChordSelection.SelectedIndex = -1;
             ShouldNotExecute = false;
@@ -87,7 +86,6 @@ namespace HarmonicStructures
             CurrentSet = GetScale(ScaleSelection.SelectedItem.ToString());
             FretboardDisplay.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).PlotAsNotes(CurrentRoot, CurrentSet);
             FretboardDisplay2.Text = (new Fretboard(numberOfStringsToPrint, CurrentTuning)).Plot(CurrentRoot, CurrentSet);
-
         }
 
         private void RootSelection_SelectionChanged(object sender, SelectionChangedEventArgs e)

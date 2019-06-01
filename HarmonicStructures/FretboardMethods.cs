@@ -147,7 +147,14 @@ namespace HarmonicStructures
             //Responsible only for printing it out as factors: :D
             for (int CurrentString = 0; CurrentString < NumberOfStrings; CurrentString++) //StringIteration
             {
-                outcome += $" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||";
+                if (CurrentString + 1 > 9)
+                {
+                    outcome += $"{CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||";
+                }
+                else
+                {
+                    outcome += $" {CurrentString + 1}:  {FretboardPlot.fretboard[CurrentString, 0].FactorToString()}  ||";
+                }
                 for (int CurrentFret = 1; CurrentFret < FretboardPlot.fretboard.GetLength(1); CurrentFret++) //FretIteration
                 {
 
@@ -206,7 +213,15 @@ namespace HarmonicStructures
                 if (FretboardPlot.fretboard[CurrentString, 0].Factor == null)
                 {
                     //Console.Write($" {CurrentString + 1}: \t||");
-                    outcome += $" {CurrentString + 1}:      ||";
+                    //outcome += $" {CurrentString + 1}:      ||";
+                    if (CurrentString + 1 > 9)
+                    {
+                        outcome += $"{CurrentString + 1}:      ||";
+                    }
+                    else
+                    {
+                        outcome += $" {CurrentString + 1}:      ||";
+                    }
                 }
                 else
                 {
@@ -214,11 +229,25 @@ namespace HarmonicStructures
                     bool tempIsSharp = (temp.Note == Notes.Csharp || temp.Note == Notes.Dsharp || temp.Note == Notes.Fsharp || temp.Note == Notes.Gsharp || temp.Note == Notes.Asharp);
                     if (tempIsSharp)
                     {
-                        outcome += $" {CurrentString + 1}: {FretboardPlot.fretboard[CurrentString, 0]}||";
+                        if (CurrentString + 1 > 9)
+                        {
+                            outcome += $"{CurrentString + 1}: {FretboardPlot.fretboard[CurrentString, 0]}||";
+                        }
+                        else
+                        {
+                            outcome += $" {CurrentString + 1}: {FretboardPlot.fretboard[CurrentString, 0]}||";
+                        }
                     }
                     else
                     {
-                        outcome += $" {CurrentString + 1}:   {FretboardPlot.fretboard[CurrentString, 0]}  ||";
+                        if (CurrentString + 1 > 9)
+                        {
+                            outcome += $"{CurrentString + 1}:   {FretboardPlot.fretboard[CurrentString, 0]}  ||";
+                        }
+                        else
+                        {
+                            outcome += $" {CurrentString + 1}:   {FretboardPlot.fretboard[CurrentString, 0]}  ||";
+                        }
                     }
                 }
 
